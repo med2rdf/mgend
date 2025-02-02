@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+  rust-app:
+    build: .
+    container_name: mgend_rdf_converter
+    image: mgend_rdf_converter
+    volumes:
+      - ${PWD}:/app
+      - ${PWD}/data:/data
+    working_dir: /app
+  raptor:
+    container_name: mgend_raptor
+    image: mgend_raptor
+    build:
+      context: .
+      dockerfile: Dockerfile.raptor
+    user: ${UID:-0}:${GID:-0}
+    volumes:
+      - ${PWD}/data:/data
