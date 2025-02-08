@@ -39,13 +39,13 @@ ARGS:
 * <b>The data file location used by the container should be placed in `./data/` and accessed in the container by the path `/data/`.</b>
 * <b>If you have an old version of the docker engine (`$ docker version` < 1.27.0), install docker-compose and use the `docker-compose` command instead of the `docker compose` command.</b>
 ### STEPS
-1. Build container (only once, at the first time)
+1. Build container (at the first time or at the time of source code modification)
 ```
 $ git clone https://github.com/med2rdf/mgend.git
 $ cd mgend
 $ docker compose build --no-cache
-// check TODO: should be output to '/app/target/release/mgend-rdf'
-$ docker compose run --rm rust-app /app/target/debug/mgend-rdf --help
+// output help
+$ docker compose run --rm rust-app mgend-rdf --help
 ```
 
 2. Obtain `hgnc_complete_set.txt` and save it in `./data/` directory
@@ -58,7 +58,7 @@ $ cp -a /your/path/MGeND_hg38.tsv.gz ./data/MGeND_hg38.tsv.gz
 ```
 4. Run converter
 ```
-$ docker compose run --rm rust-app /app/target/debug/mgend-rdf --assembly GRCh38 --format turtle --hgnc /data/hgnc_complete_set.txt --directory /data/oupput /data/MGeND_hg38.tsv.gz
+$ docker compose run --rm rust-app mgend-rdf --assembly GRCh38 --format turtle --hgnc /data/hgnc_complete_set.txt --directory /data/output /data/MGeND_hg38.tsv.gz
 // check the output files
 $ ls ./data/output
 mgend_variant.ttl.gz   mgend_case.ttl.gz   mgend_disease.ttl.gz   mgend_gene.ttl.gz  mgend_submission.ttl.gz
@@ -69,7 +69,7 @@ This step is not necessarily required if you are not using Virtuoso as the datab
 
 5. Extract `.gz` files
 ```
-$ gunzip data/oupput/*.gz
+$ gunzip data/output/*.gz
 ```
 
 7. Convert from ttl to nt format
