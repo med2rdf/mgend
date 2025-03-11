@@ -83,16 +83,16 @@
   m2r:begin 90 ;
   m2r:lessThan 100 .
 
-:bin11 a owl:Class ;
+:Bin11 a owl:Class ;
   rdfs:subClassOf m2r:Bin ;
   rdfs:label "100-"@en ;
   m2r:begin 100 .
 
-:bin12 a owl:Class ;
+:Bin12 a owl:Class ;
   rdfs:subClassOf m2r:Bin ;
   rdfs:label "Unknown"@en .
 
-:bin13 a owl:Class ;
+:Bin13 a owl:Class ;
   rdfs:subClassOf m2r:Bin ;
   rdfs:label "Not provided"@en .
 
