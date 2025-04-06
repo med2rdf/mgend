@@ -209,7 +209,7 @@ pub enum ClinicalSignificance {
     Pathogenic,
     #[serde(rename = "Uncertain significance")]
     UncertainSignificance,
-    #[serde(rename = "not provided")]
+    #[serde(rename(serialize = "Not provided", deserialize = "not provided"))]
     NotProvided,
     #[serde(rename = "Likely benign")]
     LikelyBenign,
@@ -272,6 +272,6 @@ pub enum AlleleOrigin {
     Germline,
     Somatic,
     Unknown,
-    #[serde(rename(deserialize = "not provided"))]
+    #[serde(rename(serialize = "Not provided", deserialize = "not provided"))]
     NotProvided,
 }

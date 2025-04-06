@@ -21,11 +21,11 @@ use std::io::Write;
 const SO_SOMATIC_VARIANT: &'static str = "SO_0001777";
 const SO_GERMLINE_VARIANT: &'static str = "SO_0001778";
 
-const SEX_LABEL_MALE: &'static str = "male";
-const SEX_LABEL_FEMALE: &'static str = "female";
-const SEX_LABEL_MIXED_GENDER: &'static str = "mixed gender";
-const SEX_LABEL_UNKNOWN: &'static str = "unknown";
-const SEX_LABEL_NOT_PROVIDED: &'static str = "not provided";
+const SEX_LABEL_MALE: &'static str = "Male";
+const SEX_LABEL_FEMALE: &'static str = "Female";
+const SEX_LABEL_MIXED_GENDER: &'static str = "Mixed gender";
+const SEX_LABEL_UNKNOWN: &'static str = "Unknown";
+const SEX_LABEL_NOT_PROVIDED: &'static str = "Not provided";
 
 #[derive(Debug, Serialize)]
 pub struct Histogram {
@@ -211,6 +211,7 @@ impl<'a> From<&Record<'a>> for Case {
                 r.age_100_numerator,
                 r.age_unknown_numerator,
                 r.age_not_provided_numerator,
+                r.age_other_numerator,
             ],
             "Age",
             format!("{}:SIO_001013", SIO.prefix).as_str(),
