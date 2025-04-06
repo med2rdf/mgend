@@ -256,7 +256,7 @@ impl<'a> From<&Record<'a>> for Case {
             sub_disease_area: r.disease_area_2.clone(),
             xref,
             case_significance: r.clinical_significance.clone(),
-            case_count_total: r.age_0_9_denominator,
+            case_count_total: r.sex_male_numerator + r.sex_female_numerator + r.sex_mixed_gender_numerator + r.sex_unknown_numerator + r.sex_not_provided_numerator,
             case_age_range_count: vec![case_age_count, case_age_of_on_set_count],
             case_sex_count,
         }
