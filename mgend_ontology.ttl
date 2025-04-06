@@ -96,6 +96,10 @@
   rdfs:subClassOf m2r:Bin ;
   rdfs:label "Not provided"@en .
 
+:Bin14 a owl:Class ;
+  rdfs:subClassOf m2r:Bin ;
+  rdfs:label "Other"@en .
+
 #
 # Properties
 #
